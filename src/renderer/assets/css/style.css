@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+p {
+    font-family: 'Open Sans';
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: '../font/OpenSans-Regular.ttf';
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.root {
+    display: flex;
+}
+
+/*
+1. left 左侧
+*/
+.left.active {
+    width: 200px;
+    /* background-color: aquamarine; */
+    transition: width 0.2s ease-out 0s;
+    display: flex;
+}
+
+.left {
+    width: 80px;
+    transition: width 0.2s ease-out 0s;
+}
+
+.left .file {
+    float: left;
+    width: 40px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+    transition: width 0.2s ease-out 0s;
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+}
+
+.left .file.active {
+    width: 160px;
+}
+
+.left .file .file_area {
+    width: 40px;
+    flex: 1;
+    transition: width 0.2s ease-out 0s;
+}
+
+.left .file .file_area .file_area_histroy {
+    width: 100%;
+    height: 70%;
+    border-bottom: 1px solid #546071;
+}
+
+.left .file .file_area .file_area_histroy ul li {
+    height: 20px;
+
+    color: #545454;
+    display: none;
+}
+
+.left.active .file.active .file_area .file_area_histroy ul li {
+    display: block;
+}
+
+.left.active .file.active .file_area .file_area_histroy ul li:hover {
+    background-color: #888;
+    cursor: pointer;
+}
+
+.left.active .file.active .file_area .file_area_histroy ul li.active {
+    background-color: #c8c8c8;
+
+}
+
+.left .file .file_area .file_area_now {
+    width: 100%;
+    height: 25%;
+    /* border-bottom: 1px solid #546071; */
+
+}
+
+
+
+.left .file .file_area .file_area_now ul li {
+    height: 20px;
+    display: none;
+}
+
+.left.active .file.active .file_area .file_area_now ul li {
+    display: block;
+}
+
+.left .file.active .file_area {
+    width: 160px;
+}
+
+.left .file .file_button {
+    background-color: #ffffff;
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    color: #546071;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    transition: width 0.2s ease-out 0s;
+    position: relative;
+}
+
+.left .file.active .file_button .file_button_icon {
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+}
+
+.left .file .file_button .file_button_icon {
+    display: none;
+}
+
+.left .file.active .file_button {
+    width: 160px;
+}
+
+.left .file .file_button:hover {
+    background-color: aliceblue;
+}
+
+.left .menu {
+    float: left;
+    width: 40px;
+    /* background-color: bisque; */
+    transition: width 0.2s ease-out 0s;
+    display: flex;
+    flex-flow: column;
+}
+
+.left .menu.active {
+    width: 160px;
+
+}
+
+.left .menu .menu_svg {
+    width: 100%;
+    flex: 1;
+
+}
+
+.left .menu .controlSvg {
+    width: 100%;
+    overflow: hidden;
+    height: min-content;
+}
+
+
+
+.left .menu .control_svg_title {
+    display: none;
+}
+
+.left .menu.active .control_svg_title {
+    display: block;
+    text-align: center;
+}
+
+.left .menu .controlSvg .control_svg_options {
+    height: 100%;
+}
+
+.left .menu .controlSvg .control_svg_options li {
+    display: block;
+    width: 40px;
+    height: 40px;
+    float: left;
+    font-size: 2.0em;
+    text-align: center;
+    line-height: 38px;
+}
+
+.left .menu .controlSvg .control_svg_options li:hover {
+    font-size: 2.5em;
+    overflow: hidden;
+    background-color: ivory;
+    cursor: pointer
+}
+
+.left .menu.active .controlSvg .control_svg_options li:nth-child(3n-2) {
+    margin-left: 20px;
+}
+
+.left .menu .controlSvg .control_svg_options li {
+    margin: 0;
+}
+
+.left .menu .editSvg {
+
+    width: 100%;
+    height: 60%;
+}
+
+
+.left .menu .editSvg ul.editSvg_ul li {
+    display: block;
+    width: 100%;
+    /* height: 40px; */
+    line-height: 40px;
+    font-size: 25px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.left .menu .editSvg ul.editSvg_ul li:hover {
+    font-size: 2.3em;
+
+    background-color: ivory;
+    cursor: pointer
+}
+
+.left .menu.active .editSvg ul li .edit_svg_option_icon {
+    display: block;
+    float: left;
+    margin-left: 10px
+}
+
+
+
+.left .menu.active .editSvg ul li .edit_svg_option_title {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options {
+    display: block;
+    width: 30px;
+    font-size: 0.7em;
+    float: right;
+    transition: transform 0.1s ease-out 0s;
+    transform-origin: center;
+
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options:hover {
+    font-size: 0.9em
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options_detial_task {
+    height: 0px;
+    background-color: #ffffff;
+    transition: height 0.2s ease-out 0s;
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options_detial_task.active {
+    min-height: 160px;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    float: left;
+
+}
+
+.left .menu .editSvg ul li .edit_svg_edit_options_detial_task ul {
+    display: none;
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options_detial_task ul {
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    height: 0;
+    transition: height 0.3s ease-out;
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options_detial_task.active ul {
+    height: 100%;
+}
+
+
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options_detial_task.active li {
+    display: block;
+    width: 40px;
+    height: 40px;
+    float: left;
+    font-size: 22px;
+    transition: font-size 0.1s linear;
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options_detial_task.active li:hover {
+    font-size: 27px;
+}
+
+.left .menu.active .editSvg ul li .edit_options_container {
+    width: 160px;
+    height: 50px;
+    background-color: #ffffff;
+    display: none;
+}
+
+.left .menu.active .editSvg ul li .edit_svg_edit_options.active {
+    transform: rotate(90deg);
+}
+
+
+
+.left .menu .editSvg ul li .edit_svg_option_title {
+    display: none;
+}
+
+.left .menu .editSvg ul li .edit_svg_edit_options {
+
+    display: none;
+}
+
+.left .menu .controlFile {
+    background-color: #ffffff;
+    width: 100%;
+    height: 40px;
+    width: 40px;
+    position: fixed !important;
+    bottom: 0px;
+    position: absolute;
+}
+
+.left .menu .controlFile .controlFile_button {
+    vertical-align: middle;
+    line-height: 40px;
+    text-align: center;
+    transform: rotateX(180deg);
+}
+
+.left .menu .controlFile .controlFile_button:hover {
+    font-size: 1.3em
+}
+
+.left .menu .controlFile .controlFile_button svg {
+    transition: transform 0.2s ease-out 0s;
+    fill: #546071;
+}
+
+.left .menu .controlFile .controlFile_button.open svg {
+    transform: rotate(180deg);
+    fill: coral;
+}
+
+.left .menu .controlFile .controlFile_button.open:hover {
+    font-size: 1.3em
+}
+
+/*
+right 右侧
+*/
+.right {
+    flex: 1;
+    /* background-color: rgb(69, 228, 197); */
+    display: flex;
+    flex-flow: column;
+}
+
+/* 
+
+右侧的svg  图片编辑区域*/
+.right .container {
+    flex: 1;
+    overflow: hidden;
+}
+
+.content,
+.content>div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.content>.message {
+    text-align: center;
+    display: table;
+
+    font-size: 16px;
+    color: #111;
+}
+
+.content>.message .note {
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+
+.content .error .details {
+    max-width: 500px;
+    font-size: 12px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.content .error pre {
+    border: solid 1px #CCC;
+    background: #EEE;
+    padding: 10px;
+}
+
+.content:not(.with-error) .error,
+.content.with-error .intro,
+.content.with-diagram .intro {
+    display: none;
+}
+
+
+.content .canvas,
+.content.with-error .canvas {
+    visibility: hidden;
+}
+
+.content.with-diagram .canvas {
+    visibility: visible;
+}
+
+.right .container #js-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+右侧的 内容控制大小按钮
+*/
+.right .svg_screen_control .full_screen {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 1.5em
+}
+
+.right .svg_screen_control .full_screen.active {
+    display: block;
+
+}
+
+.right .svg_screen_control .full_screen.active:hover {
+    background-color: #dedbdb
+}
+
+.right .svg_screen_control .normal_screen {
+    display: none;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 1.5em
+}
+
+.right .svg_screen_control .normal_screen.active {
+    display: block;
+
+}
+
+.right .svg_screen_control .normal_screen.active:hover {
+    background-color: #dedbdb
+}
+
+/* 
+
+右侧属性区域
+*/
+.right .attrs .attrs_banner {
+    height: 35px;
+    width: 100%;
+    background-color: #ffffff;
+    flex: 2;
+}
+
+.right .attrs .attrs_banner .attrs_title {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.right .attrs .attrs_banner .attrs_title span {
+    line-height: 38px;
+    margin-left: 30px;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 600;
+    color: #546071;
+}
+
+.right .attrs .attrs_banner .attrs_banner_button {
+    float: right;
+    width: 40px;
+    line-height: 38px;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 30px;
+    transition: font-size 0.1s linear;
+}
+
+.right .attrs .attrs_banner .attrs_banner_button:hover {
+    font-size: 1.5em;
+}
+
+.right .attrs .attrs_banner .attrs_banner_button svg {
+    fill: #546071;
+    transform: rotate(270deg);
+    transition: transform 0.2s ease-out 0s;
+}
+
+.right .attrs .attrs_banner .attrs_banner_button.open svg {
+    transform: rotate(90deg);
+    fill: coral;
+}
+
+/* 
+右侧属性内容  区域
+*/
+
+
+
+.right .attrs .attrs_container {
+    height: 0;
+    /* background-color: aqua; */
+    transition: height display 1s ease-out 0s;
+    display: none;
+}
+
+.right .attrs.active .attrs_container {
+    height: 200px;
+    display: block;
+}
+
+/* 
+.right .attrs.active .attrs_container .attrs_container_topbar {
+    height: 35px;
+    border-bottom: 1px solid #888;
+} */
+
+.right .attrs.active .attrs_container .attrs_container_messages {
+    height: 164px;
+}

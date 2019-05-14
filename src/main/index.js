@@ -1,16 +1,36 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import {
+  app,
+  BrowserWindow,
+  ipcMain,
+  screen
+} from 'electron'
 import * as path from 'path'
-import { format as formatUrl } from 'url'
+import ipc from './ipcMain/index'
+import {
+  format as formatUrl
+} from 'url'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
+
 let mainWindow
 
 function createMainWindow() {
-  const window = new BrowserWindow()
+  const {
+    width,
+    height
+  } = screen.getPrimaryDisplay().workAreaSize
+  const window = new BrowserWindow({
+    width,
+    height,
+    minHeight: 900,
+    minWidth: 1000,
+    title: 'bpmn-rain',
+  })
+
 
   if (isDevelopment) {
     window.webContents.openDevTools()
@@ -18,14 +38,24 @@ function createMainWindow() {
 
   if (isDevelopment) {
     window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`)
-  }
-  else {
+
+  } else {
     window.loadURL(formatUrl({
       pathname: path.join(__dirname, 'index.html'),
       protocol: 'file',
       slashes: true
     }))
+
   }
+  /**
+   *  widow resize 
+   */
+  window.webContents.send('windowNewSize', window.getContentSize())
+  ipcMain.on('windowResize', (event, arg) => {
+
+    event.sender.send('windowNewSize', window.getContentSize())
+  })
+  ipc()
 
   window.on('closed', () => {
     mainWindow = null
@@ -58,5 +88,6 @@ app.on('activate', () => {
 
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
+
   mainWindow = createMainWindow()
 })

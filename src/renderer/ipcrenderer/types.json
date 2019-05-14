@@ -1,0 +1,18 @@
+{
+    "types": [
+        "Participant",
+        "StartEvent",
+        "EndEvent",
+        "Intermediate",
+        "ExclusiveGateway",
+        "SubProcess",
+        "Task",
+        "DataObjectReference",
+        "DataStoreReference",
+        "TextAnnotation",
+        "SequenceFlow",
+        "Association",
+        "Collaboration"
+    ]
+
+}
